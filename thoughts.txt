@@ -1,0 +1,6 @@
+how to create Rooms:
+    1:random matrix from 0-5: 0 no room, number of doors, 5 exit
+        problems: size of matrix, making sure there are exactly so many rooms next to that room.
+
+    2: creating matrix by hand
+        problem: time-consuming
