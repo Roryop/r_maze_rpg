@@ -7,9 +7,12 @@ import (
 
 func RandomMatrix(difficulty string) {
 
-	var randomMatrix any
+	var randomMatrix = [][]int{{}, {}}
+	var s []int
+	s = append(s, 1, 2)
+	randomMatrix[1] = s
 	var matrixLength int
-	//var cellValue int
+	var cellValue int
 
 	if difficulty == "easy" {
 		matrixLength = 3
@@ -38,5 +41,5 @@ func RandomMatrix(difficulty string) {
 		}
 	}
 
-	fmt.Println(randomMatrix)
+	fmt.Println(randomMatrix, cellValue)
 }
