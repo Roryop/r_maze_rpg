@@ -1,3 +1,8 @@
+/*	Name: BenjaminBlumch3n
+	Date: 11.10.2024
+	Reason: Initializing Rooms
+*/
+
 package rooms
 
 import (
@@ -7,16 +12,25 @@ import (
 
 func RandomMatrix(difficulty string) {
 
-	var randomMatrix = [][]int{{}, {}}
-	var s []int
-	s = append(s, 1, 2)
-	randomMatrix[1] = s
+	var randomMatrix = [][]int{}
 	var matrixLength int
 	var cellValue int
 
-	if difficulty == "easy" {
+	//adjusting matrix for difficulty
+	//requirement: set difficulty
+	//result: matrix with new length (square)
+
+	switch difficulty {
+	case "easy":
 		matrixLength = 3
+	case "normal":
+		matrixLength = 5
+	case "hard":
+		matrixLength = 10
+	case "impossible":
+		matrixLength = 100
 	}
+
 	//var thisMatrix = [matrixLength][matrixLength]int
 	for i := 0; i < matrixLength; i++ {
 		for j := 0; j < matrixLength; j++ {
@@ -38,6 +52,9 @@ func RandomMatrix(difficulty string) {
 				cellValue = 5
 			}
 			//thisMatrix[i][j] = cellValue
+			var s []int
+			s = append(s, cellValue)
+			randomMatrix[i] = s
 		}
 	}
 
