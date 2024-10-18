@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"start/enemies"
+	"start/random"
 )
 
 func main() {
@@ -13,4 +14,6 @@ func main() {
 	fmt.Println(ork1.InitBasisOrk())
 	ork1.SetStats(10, 10, 10, 10)
 	ork1.SeeStats()
+
+	random.GetRandomNumber(100)
 }
