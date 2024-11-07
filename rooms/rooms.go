@@ -12,7 +12,7 @@ import (
 
 func RandomMatrix(difficulty string) {
 
-	var randomMatrix = [][]int{}
+	//var randomMatrix = [][]int{}
 	var matrixLength int
 	var cellValue int
 
@@ -31,8 +31,18 @@ func RandomMatrix(difficulty string) {
 		matrixLength = 100
 	}
 
+	//creating a slice made up of slices (2-dimensional)
+	var randomMatrix = make([][]int, matrixLength)
+	for i := 0; i < matrixLength; i++ {
+		randomMatrix[i] = make([]int, matrixLength)
+	}
+
 	//var thisMatrix = [matrixLength][matrixLength]int
 	for i := 0; i < matrixLength; i++ {
+
+		var s []int //creating slice to later put into matrix
+
+		//adding value to cell reliant on probability
 		for j := 0; j < matrixLength; j++ {
 
 			cellProbability := rand.Intn(100)
@@ -46,17 +56,14 @@ func RandomMatrix(difficulty string) {
 				cellValue = 2
 			case cellProbability <= 90 && cellProbability > 70:
 				cellValue = 3
-			case cellProbability <= 99 && cellProbability > 90:
+			case cellProbability <= 100 && cellProbability > 90:
 				cellValue = 4
-			case cellProbability == 100:
-				cellValue = 5
 			}
 			//thisMatrix[i][j] = cellValue
-			var s []int
-			s = append(s, cellValue)
-			randomMatrix[i] = s
+			s = append(s, cellValue) //making slice bigger
 		}
+		randomMatrix[i] = s //inputting slice
 	}
 
-	fmt.Println(randomMatrix, cellValue)
+	fmt.Println(randomMatrix)
 }
