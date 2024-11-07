@@ -16,4 +16,8 @@ func main() {
 	ork1.SeeStats()
 
 	random.GetRandomNumber(100)
+
+	var ork2 = enemies.NewOrk()
+	var ork3 = enemies.NewOrk()
+	enemies.OrcFight(ork2, ork3)
 }

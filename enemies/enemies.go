@@ -56,3 +56,32 @@ func NewOrk() *Ork {
 	var ork *Ork = new(Ork)
 	return ork
 }
+
+//////////UNTERRICHT////////////
+
+//Ork vs Ork
+func OrcFight(ork1, ork2 *Ork) {
+	var decision string
+	ork1.InitBasisOrk()
+	ork2.InitBasisOrk()
+
+	fmt.Println("Zwei Orcs fighten!")
+
+	for ork1.health > 0 && ork2.health > 0 {
+		ork1.health = ork1.health - ork2.strength
+		if ork1.health > 0 {
+			ork2.health = ork2.health - ork1.strength
+		}
+		fmt.Print("\nOrk1-HP: ", ork1.health, "\nOrk2-HP: ", ork2.health)
+		fmt.Print("\n\nKampf abbrechen? Nein = x")
+		fmt.Scanln(&decision)
+		if decision == "x" {
+			break
+		}
+	}
+	if ork1.health <= 0 {
+		fmt.Println("\nOrk 2 hat gewonnen!")
+	} else {
+		fmt.Println("\nOrk 1 hat gewonnen!")
+	}
+}
