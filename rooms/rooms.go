@@ -57,7 +57,11 @@ func RandomMatrix(difficulty string) {
 			case cellProbability <= 90 && cellProbability > 70:
 				cellValue = 3
 			case cellProbability <= 100 && cellProbability > 90:
-				cellValue = 4
+				if i == 0 || j == 0 || i == matrixLength-1 || j == matrixLength-1 { //room on edge can´t have 4 doors
+					cellValue = 3
+				} else {
+					cellValue = 4
+				}
 			}
 			//thisMatrix[i][j] = cellValue
 			s = append(s, cellValue) //making slice bigger
