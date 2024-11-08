@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"start/enemies"
+	"start/random"
 	"start/rooms"
-	//"start/random"
 )
 
 func main() {
@@ -16,5 +16,5 @@ func main() {
 	// ork1.SetStats(10, 10, 10, 10)
 	// ork1.SeeStats()
 
-	//random.GetRandomNumber(100)
+	random.GetRandomNumber(100)
 }
